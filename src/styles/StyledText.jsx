@@ -6,10 +6,10 @@ const Text = styled.h1.attrs(props => {
         variant,
         letterSpacing = 'inherit',
         lineHeight = 'inherit',
-        color = 'white',
+        color = 'primaryText',
         size,
     } = props;
-    const fontSize = size || theme.textVariants[`${variant}`];
+    const fontSize = size || theme.typography[`${variant}`];
     const c = theme.main[`${color}`] || color;
     return {
         size: fontSize,

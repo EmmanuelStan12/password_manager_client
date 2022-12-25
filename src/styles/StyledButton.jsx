@@ -11,7 +11,6 @@ const BaseButton = styled.button`
         color: white,
         outline: none;
         display: inline-block;
-        font-weight: 600;
         text-transform: uppercase;
         transition: all 300ms ease-in-out; 
         justifySelf: flex-end; 
