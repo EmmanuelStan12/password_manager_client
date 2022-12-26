@@ -14,6 +14,7 @@ const FlexContainer = styled(Box).attrs(props => ({
 }))`
     ${props => css`
         width: ${props.width};
+        position: relative;
         display: flex;
         align-items: ${props.alignItems};
         justify-content: ${props.justifyContent};

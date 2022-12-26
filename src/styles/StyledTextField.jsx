@@ -5,23 +5,23 @@ const StyledTextField = styled.div.attrs(props => ({
 }))`
     ${props => css`
         padding: 10px 12px;
-        border-radius: 10px;
+        border-radius: ${props.br || '10px'};
         display: block;
-        flex: 1;
         display: flex;
         justify-items: center;
         align-items: center;
         height: fit-content;
-        width: 100%;
+        width: ${props.width || '100%'} ;
         gap: 4px;
         & > input, & > textarea {
             outline: none;
             border: 0;
             font-size: 14px;
-            font-family: "Poppins";
-            width: 100%;
-            display: flex;
-            flex: 1;
+            font-family: "Roboto";
+            width: ${props.width || '100%'};
+        }
+        & svg {
+            font-size: 17px;
         }
     `}
 `;

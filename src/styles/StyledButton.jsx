@@ -60,7 +60,7 @@ export const FloatingActionButton = styled(ElevatedButton).attrs(props => {
         background: ${variant};
         transition: all 200ms ease;
         box-shadow: ${disabled ? 'inset 0 0 100px 100px rgba(255, 255, 255, 0.4)' : '0 0 0 0 transparent'};
-        svg {
+        svg, p, h3, h5 {
             color: ${color};
             font-size: ${fontSize};
         }

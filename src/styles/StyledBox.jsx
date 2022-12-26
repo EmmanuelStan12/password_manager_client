@@ -34,6 +34,7 @@ const Box = styled.div.attrs(props => {
         border: ${props.border};
         padding: ${props.padding};
         margin: ${props.margin};
+        position: ${props.position};
         ${props.style ? { ...props.style } : ''};
         &.scrollbar {
             overflow-y: auto;

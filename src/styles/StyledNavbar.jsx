@@ -1,9 +1,9 @@
 import styled, { css } from "styled-components";
 
 const StyledNavbar = styled.nav`
-    padding: 0.5rem 2rem;
     display: flex;
     position: absolute;
+    padding: 0 10px;
     top: 0;
     left: 0;
     flex-direction: row;
@@ -11,6 +11,7 @@ const StyledNavbar = styled.nav`
     box-sizing: border-box;
     width: 100%;
     z-index: 100;
+    height: 70px;
     box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);
     ${props => css`
         justify-content: ${props.justifyContent || 'space-between'};
@@ -21,9 +22,17 @@ const StyledNavbar = styled.nav`
 export const NavbarTitle = styled.h3`
     ${props => css`
         color: ${props.theme.main.primary || 'white'};
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 7px;
         span {
-            color: ${props.spanColor || props.theme.main.primary}
+            color: ${props.spanColor || props.theme.main.primary};
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        img {
+            width: 35px;
         }
     `}
 `;
@@ -32,14 +41,21 @@ export const NavbarOptions = styled.ul`
     display: flex;
     align-items: center;
     gap: 20px;
+    height: 100%;
 `;
 
 export const NavbarOption = styled.li`
     list-style: none;
     overflow: hidden;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     a {
         text-decoration: none;
         font-size: 1.1rem;
+        text-align: center;
         color: ${props => props.theme.main.primary};
         font-style: bold;
     }
@@ -49,6 +65,10 @@ export const NavbarOption = styled.li`
         background: ${props => props.theme.main.primary};
         transform: translateX(-110%);
         transition: all 500ms ease;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
     }
     &&:hover div {
         transform: translateX(0%);

@@ -12,7 +12,7 @@ const TextField = ({ icon, variant, reference, endIcon = null, onEndIconClick, .
   const Component = types[`${variant}`];
   const EndIcon = endIcon;
   return (
-    <Component>
+    <Component {...otherProps}>
       {icon && <Icon color='rgba(0,0,0,0.7)' />}
       <input ref={reference} {...otherProps} />
       {endIcon && <EndIcon onClick={onEndIconClick} size={20} className="end_icon" />}
