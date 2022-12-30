@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import TextField from '../components/TextField'
 import Box from '../styles/StyledBox'
 import FlexContainer from '../styles/StyledFlexContainer'
+import {useNavigate} from 'react-router-dom'
 import Text from '../styles/StyledText'
 import { MdPerson } from 'react-icons/md'
 import { MdEmail, MdPassword } from 'react-icons/md'
@@ -10,13 +11,25 @@ import StyledLabel from '../styles/StyledLabel'
 import Button from '../components/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../data/actions/UserActions'
+import ErrorDisplay from '../components/ErrorDisplay'
 
 const Login = () => {
     const usernameRef = useRef()
     const passwordRef = useRef()
     const dispatch = useDispatch()
     const userState = useSelector(state => state.userReducer)
-    console.log(userState)
+    const [show, setShow] = useState(false)
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        console.log(userState)
+        if (userState.error) {
+            setShow(true)
+        }
+        if (userState.data) {
+            navigate('/dashboard')
+        }
+    }, [userState])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -28,6 +41,7 @@ const Login = () => {
     }
   return (
     <FlexContainer background='primary' >
+        <ErrorDisplay error={userState.error} show={show} setShow={setShow} />
         <Box background='white' height='fit-content' padding='20px' borderRadius='10px' width='480px'>
             <form className='form' onSubmit={onSubmit}>
                 <Text variant='h3' as='h3'>Login</Text>

@@ -57,3 +57,29 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.error_box {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  background-color: rgb(241, 64, 64);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  transition: all 400ms ease;
+}
+
+.error_box.hide {
+  transform: translateY(-100px);
+  z-index: -99;
+}
+
+.error_box.show {
+  transform: translateY(0);
+  z-index: 99;
+}
+
+.end_icon {
+  cursor: pointer;
+}

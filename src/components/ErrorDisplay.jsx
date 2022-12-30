@@ -17,9 +17,9 @@ const ErrorDisplay = ({ error, show, setShow, timeout = 3000 }) => {
 
 
     return (
-        <Box width='100%' background='rgb(241, 64, 64)' height='fit-content' padding='10px 0px'
+        <Box position='fixed' width='100%' background='rgb(241, 64, 64)' height='fit-content' padding='10px 0px'
             className={show ? 'error_box show' : 'error_box hide'}>
-            <Text variant='p' as='p'>{error || 'No error to show'}</Text>
+            <Text color='white' variant='p' as='p'>{error || 'No error to show'}</Text>
             <FloatingActionButton
                 onClick={() => setShow(false)} size={35} className='floating_button' variant='rgb(241, 64, 64)'>
                 <MdCancel />

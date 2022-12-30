@@ -41,8 +41,9 @@ export const loginUser = (email, password) => {
         try {
             const response = await axios.post(`${URL}/login`, { email: email, password: password });
             const data = response.data
+            console.log(data)
 
-            if (response.status !== 200) {
+            if (response.status !== 200 && response.status !== 201) {
                 dispatch(loginUserError(data.error));
             } else {
                 localStorage.setItem('user', JSON.stringify(data.payload.user))
