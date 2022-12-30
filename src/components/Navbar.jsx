@@ -4,8 +4,13 @@ import passwordIcon from '../assets/shield_lock_main.svg'
 import Button from './Button'
 import { MdLogout } from 'react-icons/md'
 import { FloatingActionButton } from '../styles/StyledButton'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
+    const location = useLocation();
+    const path = location.pathname.replace('/dashboard', '');
+    const isCreate = path.includes('create');
+    const isSettings = path.includes('settings')
   return (
     <StyledNavbar>
         <NavbarTitle>
@@ -14,12 +19,16 @@ const Navbar = () => {
         </NavbarTitle>
         <NavbarOptions>
             <NavbarOption>
-                <a href='#'>Home</a>
-                <div></div>
+                <NavLink className={(props) => props.isActive ? 'active' : ''} to='/dashboard'>Home</NavLink>
+                <div className={!isSettings && !isCreate && 'active'}></div>
             </NavbarOption>
             <NavbarOption>
-                <a href='#'>Settings</a>
-                <div></div>
+                <NavLink className={(props) => props.isActive ? 'active' : ''} to='create'>Create</NavLink>
+                <div className={isCreate && 'active'}></div>
+            </NavbarOption>
+            <NavbarOption>
+                <NavLink className={(props) => props.isActive ? 'active' : ''} to='settings'>Settings</NavLink>
+                <div className={isSettings && 'active'}></div>
             </NavbarOption>
         </NavbarOptions>
         <FloatingActionButton size={35}>

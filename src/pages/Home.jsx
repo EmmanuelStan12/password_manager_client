@@ -62,7 +62,7 @@ const PasswordItem = () => {
                 <Text as='p' variant='p'>
                     Amazon
                 </Text>
-                <Text as='p' variant='p'>
+                <Text as='p' variant='caption'>
                     ***********
                 </Text>
             </Box>

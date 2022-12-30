@@ -8,13 +8,28 @@ import { MdEmail, MdPassword } from 'react-icons/md'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 import StyledLabel from '../styles/StyledLabel'
 import Button from '../components/Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginUser } from '../data/actions/UserActions'
 
 const Login = () => {
     const usernameRef = useRef()
+    const passwordRef = useRef()
+    const dispatch = useDispatch()
+    const userState = useSelector(state => state.userReducer)
+    console.log(userState)
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        const data = {
+            email: usernameRef.current.value,
+            password: passwordRef.current.value
+        }
+        dispatch(loginUser(data.email, data.password))
+    }
   return (
     <FlexContainer background='primary' >
         <Box background='white' height='fit-content' padding='20px' borderRadius='10px' width='480px'>
-            <form className='form'>
+            <form className='form' onSubmit={onSubmit}>
                 <Text variant='h3' as='h3'>Login</Text>
                 <div className='divider'></div>
                 <StyledLabel width='100%' htmlFor='username' className='mt-10'>
@@ -23,10 +38,10 @@ const Login = () => {
                 </StyledLabel>
                 <StyledLabel width='100%' htmlFor='password' className='mt-10'>
                     <Text variant='caption' as='label'>Password</Text>
-                    <TextField type='password' endIcon={AiOutlineEye} icon={MdPassword} variant='outlined' reference={usernameRef} onEndIconClick={() => {}}></TextField>
+                    <TextField type='password' endIcon={AiOutlineEye} icon={MdPassword} variant='outlined' reference={passwordRef} onEndIconClick={() => {}}></TextField>
                 </StyledLabel>
                 <FlexContainer padding='0' margin='10px 0 0 0' justifyContent='space-between'>
-                    <Button variant={'elevated'}>Login</Button>
+                    <Button onClick={onSubmit} variant={'elevated'}>Login</Button>
                     <span className='span'>(If you don't have an account, one will be created)</span>
                 </FlexContainer>
             </form>
