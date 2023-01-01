@@ -1,5 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  height: 15px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  border-radius: 8px;
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #003FE3; /* Green background */
+  border-radius: 50%;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #003FE3; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
 #root {
   height: 100vh;
 }
@@ -76,6 +105,31 @@ body {
 }
 
 .error_box.show {
+  transform: translateY(0);
+  z-index: 99;
+}
+
+.error_toast {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(241, 64, 64);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  transition: all 400ms ease;
+  border-radius: 10px;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.error_toast.hide {
+  transform: translateY(100px);
+  z-index: -99;
+}
+
+.error_toast.show {
   transform: translateY(0);
   z-index: 99;
 }

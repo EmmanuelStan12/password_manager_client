@@ -11,9 +11,9 @@ const BaseButton = styled.button`
         color: white,
         outline: none;
         display: inline-block;
-        text-transform: uppercase;
         transition: all 300ms ease-in-out; 
-        justifySelf: flex-end; 
+        justifySelf: flex-end;
+        font-weight: bold; 
         `
     }
 `;

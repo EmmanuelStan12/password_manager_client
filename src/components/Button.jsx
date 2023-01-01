@@ -15,7 +15,7 @@ const Button = ({ variant, disabled = false, icon, ...otherProps }) => {
   const Component = types[`${variant}`]
   const Icon = icon;
   return (
-    <FlexBox margin='0' width='inline-block' height='fit-content' background='transparent' padding='0' gap={icon ? '5px' : '0px'}>
+    <FlexBox margin='0' width='fit-content' display='inline-block' height='fit-content' background='transparent' padding='0' gap={icon ? '5px' : '0px'}>
       {icon && <Icon />}
       <Component disabled={disabled} {...otherProps} ></Component>
     </FlexBox>

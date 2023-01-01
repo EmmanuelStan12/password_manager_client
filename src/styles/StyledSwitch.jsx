@@ -5,8 +5,8 @@ const StyledSwitch = styled.input.attrs(({ variant, theme }) => ({
     variant: theme.main[`${variant}`] || theme.main.primary,
 }))`
     ${({ variant }) => css`
-        width: 45px;
-        height: 20px;
+        width: 40px;
+        height: 16px;
         appearance: none;
         background: #e2e2e2;
         border-radius: 10px;
@@ -16,8 +16,8 @@ const StyledSwitch = styled.input.attrs(({ variant, theme }) => ({
         &:before {
             content: "";
             position: absolute;
-            width: 25px;
-            height: 25px;
+            width: 21px;
+            height: 21px;
             border-radius: 50%;
             background-color: white;
             top: 50%;

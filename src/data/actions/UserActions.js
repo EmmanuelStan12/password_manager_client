@@ -34,14 +34,12 @@ export const loginUserLoading = () => {
     }
 }
 
-export const loginUser = (email, password) => {
+export const loginUser = (info) => {
     return async (dispatch) => {
         dispatch(loginUserLoading())
-        console.log(email, password)
         try {
-            const response = await axios.post(`${URL}/login`, { email: email, password: password });
+            const response = await axios.post(`${URL}/login`, { ...info });
             const data = response.data
-            console.log(data)
 
             if (response.status !== 200 && response.status !== 201) {
                 dispatch(loginUserError(data.error));

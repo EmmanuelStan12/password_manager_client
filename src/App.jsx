@@ -36,7 +36,7 @@ function App() {
             <Route element={<CreatePasssword />} path='create' />
             <Route element={<Settings />} path='settings' />
           </Route>
-          <Route element={<Login />} path='/' />
+          <Route element={<Login />} path='/login' />
         </Routes>
       </Box>
   )
